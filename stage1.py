@@ -34,27 +34,19 @@ def devicesInventory(organizationName):
 name = ""
 
 if name == "":
-    # Generalizes this for given organization name and network name
     network_id = getNetwID(network_name, organization_name)
     inventory = devicesInventory(organization_name)
 
-    # Create a relevant inventory with only devices from the relevant network
     relevant_inventory = []
 
     for device in inventory:
         if device['networkId'] == network_id:
             relevant_inventory.append(device)
 
-    # Removes irrelevant info from desired inventory
-    for relevant_device in relevant_inventory:
-        relevant_device.pop('networkId')
-        relevant_device.pop('claimedAt')
-        relevant_device.pop('orderNumber')
+    for deviceSelected in relevant_inventory:
+        deviceSelected.pop('networkId')
+        deviceSelected['type'] = 'meraki'
 
-        # Adds source specification
-        relevant_device['category'] = 'meraki'
-
-    # Writes the relevant inventory to inventory.json
     with open('inventory.json', 'w') as output_file:
         json.dump(relevant_inventory, output_file)
     
