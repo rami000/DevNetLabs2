@@ -22,10 +22,12 @@ if resp.status_code == 200:
     with open("env.py", "a") as fo:
         fo.write(f"\nconfig['TESTING_ROOM'] = \"{Id}\"") 
 
-#Id = config['TESTING_ROOM']
 
 url = f"{WEBEX_BASE_URL}/v1/memberships"
 add_to_space = ['ramhadda@cisco.com']
+
+
+add_to_space = ["ramhadda@cisco.com"]
 
 for iduser in add_to_space:
     payload = {
