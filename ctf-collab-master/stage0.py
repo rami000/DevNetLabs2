@@ -11,6 +11,7 @@ WEBEX_BASE_URL = config['WEBEX_BASE_URL']
 
 url = f"{WEBEX_BASE_URL}/v1/rooms"
 id = None
+roomTitle = ""
 
 resp = s.get(url)
 

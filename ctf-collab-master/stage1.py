@@ -27,10 +27,10 @@ if resp.status_code == 200:
 url = f"{WEBEX_BASE_URL}/v1/memberships"
 add_to_space = ['ramhadda@cisco.com']
 
-for topkek in add_to_space:
+for idusergit in add_to_space:
     payload = {
         'Id': Id,
-        'personEmail': topkek
+        'personEmail': iduser
         }
     resp = s.post(url, data=payload)
 
